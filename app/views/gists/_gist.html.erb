@@ -1,0 +1,16 @@
+        <tr>
+          <td class="snippet"><%= gist.snippet %></td>
+          <td class="lang"><%= gist.lang %></td>
+          <td class="description"><%= gist.description %></td>
+          <td class="options">
+            <div class="show">
+              <a href='<%= gist %>'><button type="button" class="btn btn-sm btn-success">Show</button>
+            </div>
+            <div class="edit">
+              <a href='<%= edit_gist_path(gist) %>'><button type="button" class="btn btn-sm btn-success">Edit</button>
+            </div>
+            <div class="destroy">
+              <%= link_to gist, method: :delete, data: {confirm: 'Are you sure?' } do %><button type="button" class="btn btn-sm btn-danger">Delete</button><% end %>
+            </div>
+          </td>
+        </tr>
