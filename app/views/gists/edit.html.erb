@@ -1,6 +1,9 @@
-<h1>Editing gist</h1>
+<div class="edit">
+	<h1>Editing gist</h1></br>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @gist %> |
-<%= link_to 'Back', gists_path %>
+
+<a href='<%= @gist %>'><button type="button" class="btn btn-sm btn-success" style:"float: left;  margin-right: 10px" >Show</button>
+<a href='<%= gists_path %>'><button type="button" class="btn btn-sm btn-success" style:"float: left;  margin-right: 10px" >Back</button>
+</div>

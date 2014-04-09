@@ -41,9 +41,8 @@ gem 'spring',        group: :development
 gem 'pygments.rb'
 gem 'redcarpet'
 gem 'quiet_assets'
-#gem 'bootstrap-sass'
+gem 'bootstrap-sass'
 gem 'will_paginate'
-#gem 'will_paginate-bootstrap'
 
 group :production do
   gem 'pg', '0.15.1'

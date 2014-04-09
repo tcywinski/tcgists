@@ -3,6 +3,80 @@
   They will automatically be included in application.css.
 */
 body { 	
-		background-color: #E0FA71 !important; 
+		background-color: #BEF56E !important; 
 		color: #333;
+		font-size: 18px !important;
 	 }
+.hws {
+		font-size: 20px;
+		text-align: center;
+}
+
+td:nth-of-type(1) {
+		height: 100%;
+		text-align: left !important;
+}
+
+table {
+		font-family: Helvetica;
+		width: 90%;
+		border: 1px;
+		border-collapse: collapse; 
+		border-spacing: 0;
+}
+
+tr:nth-child(odd) td { 
+		background: #D8F886; 
+}   
+
+td, th { 
+		border: 1px solid transparent;
+}
+
+th {
+		font-weight: bold;
+		text-align: center; 
+}
+
+td {
+		text-align: center;
+}
+
+.gists {
+	  width: 85% ;
+	  margin-left: auto ;
+	  margin-right: auto ;
+}
+
+.new, .show, .edit {
+	  width: 55% ;
+	  margin-left: auto ;
+	  margin-right: auto ;
+	  height: 80% ;
+}
+
+.header {
+	  width: 40% ;
+	  margin-left: auto ;
+	  margin-right: auto ;
+}
+
+.newgist { 
+	  color: #ffffff !important; 
+	  background-color: #18BD1E; 
+	  border-color: #000000;
+	  width: 18% !important; 
+} 
+
+.snippet {
+	width: 60%;
+	margin-left: auto ;
+	margin-right: auto ;
+}
+
+.options {
+	width: 20%;
+	margin-left: auto ;
+	margin-right: auto ;
+}
+ 

@@ -10,12 +10,18 @@ class GistsController < ApplicationController
     #format.html
     #format.js
     #@gists = Gist.paginate(page: params[:page], per_page: 12).order('created_at DESC')
-      @gists = Gist.paginate(:page => params[:page], per_page: 11).search(params[:search])
-    #@gists = Gist.search(params[:search]).paginate(page: params[:page], per_page: 10).order('created_at DESC')
+      #@gists = Gist.paginate(:page => params[:page], per_page:7).search(params[:search])
+    @gists = Gist.search(params[:search]).paginate(page: params[:page], per_page: 7).order('created_at DESC')
     respond_to do |format|
       format.html
       format.js
     end
+  end
+
+  def search
+      if params[:search]
+        @gists = Gist.paginate(page: params[:page], per_page: 8).search(params[:search])
+      end
   end
 
   # GET /gists/1
@@ -23,9 +29,14 @@ class GistsController < ApplicationController
   def show
   end
 
-  def search
-     @gists = Gist.search(params[:lang]).paginate(page: params[:page], per_page: 10).order('created_at DESC')
-  end
+  # def search
+  #   if params[:search].nil? || params[:search].empty? then
+  #     @gists = Gist.paginate(:page => params[:page], :per_page => 8)
+  #   else
+  #     @gists = Gist.paginate(:conditions => ["description LIKE ?","%"+  params[:search] + "%"], :page => params[:page], :per_page => 8)
+  #   end
+  #   render 'index'
+  # end
 
   # GET /gists/new
   def new
@@ -80,6 +91,7 @@ class GistsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_gist
       @gist = Gist.find(params[:id])
+      #@gist = Gist.find_by lang: :search 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

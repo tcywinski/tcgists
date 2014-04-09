@@ -1,3 +1,4 @@
+<div class="show">
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Lang:</strong>
@@ -6,10 +7,19 @@
 <p>
   <strong>Snippet:</strong>
 </p>
-<%= raw Pygments.highlight(@gist.snippet, lexer: @gist.lang) %>
+	<% begin %>
+
+		<%= raw Pygments.highlight(@gist.snippet, lexer: @gist.lang) %>
+		
+		<% rescue %>
+
+		<%= raw Pygments.highlight(@gist.snippet) %>
+
+	<% end %>
 <p>
   <strong>Description:</strong>
   <%= @gist.description %>
 </p>
-<%= link_to 'Edit', edit_gist_path(@gist) %> |
-<%= link_to 'Back', gists_path %>
+<a href='<%= edit_gist_path(@gist) %>'><button type="button" class="btn btn-sm btn-success" style:"float: left;  margin-right: 10px" >Edit</button>
+<a href='<%= gists_path %>'><button type="button" class="btn btn-sm btn-success" style:"float: left;  margin-right: 10px" >Back</button>
+</div>

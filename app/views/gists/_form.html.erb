@@ -1,4 +1,11 @@
 <%= form_for(@gist) do |f| %>
+  
+  <%
+  all_lexers = Pygments.lexers.flatten.select.with_index(offset = 0) { |x,i| i % 2 == 0 }.sort
+  all_lexers = all_lexers.delete_if { |x| x =~ /.\s./ }
+  all_lexers = all_lexers.map { |x| x.downcase }
+  %>
+
   <% if @gist.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@gist.errors.count, "error") %> prohibited this gist from being saved:</h2>
@@ -13,15 +20,19 @@
 
   <div class="field">
     <%= f.label :snippet %><br>
-    <%= f.text_area :snippet %>
+    <span class="textfield">
+      <%= f.text_area :snippet, :size => "140x10" %>
+    </span>
   </div>
   <div class="field">
     <%= f.label :lang %><br>
-    <%= f.text_field :lang %>
+    <%= f.select :lang, all_lexers %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <span class="textfield">
+      <%= f.text_area :description, :size => "140x2" %>
+    </span>
   </div>
   <div class="actions">
     <%= f.submit %>
